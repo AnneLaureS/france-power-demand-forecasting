@@ -1,0 +1,24 @@
+# --- R ---
+.Rhistory
+.Rapp.history
+.RData
+.RDataTmp
+.Ruserdata
+.Renviron
+.Rproj.user/
+
+# --- Generated output ---
+output/
+Rplots.pdf
+*.rds
+*.RDS
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# --- Archives ---
+*.zip
