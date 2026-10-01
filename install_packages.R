@@ -1,22 +1,22 @@
-# Installe les packages CRAN nécessaires à modele_final.R.
-# À lancer une seule fois :  Rscript install_packages.R
+# Installs the CRAN packages required by modele_final.R.
+# Run once:  Rscript install_packages.R
 
 packages <- c(
   "mgcv",        # GAM
-  "qgam",        # regression quantile additive
+  "qgam",        # additive quantile regression
   "forecast",    # auto.arima
-  "opera",       # agregation d'experts (MLpol)
+  "opera",       # expert aggregation (MLpol)
   "data.table",  # fread
   "readr",       # read_delim
   "dplyr",       # filter, %>%
   "magrittr"     # %>%
 )
 
-manquants <- setdiff(packages, rownames(installed.packages()))
+missing <- setdiff(packages, rownames(installed.packages()))
 
-if (length(manquants) == 0) {
-  message("Tous les packages sont deja installes.")
+if (length(missing) == 0) {
+  message("All packages are already installed.")
 } else {
-  message("Installation de : ", paste(manquants, collapse = ", "))
-  install.packages(manquants, repos = "https://cloud.r-project.org")
+  message("Installing: ", paste(missing, collapse = ", "))
+  install.packages(missing, repos = "https://cloud.r-project.org")
 }

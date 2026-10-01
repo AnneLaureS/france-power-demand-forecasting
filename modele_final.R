@@ -6,9 +6,9 @@ rm(list=objects())
 graphics.off()
 
 library(mgcv)        # GAM
-library(qgam)        # regression quantile additive
+library(qgam)        # additive quantile regression
 library(forecast)    # auto.arima
-library(opera)       # agregation d'experts (MLpol)
+library(opera)       # expert aggregation (MLpol)
 library(data.table)  # fread
 library(readr)       # read_delim
 library(dplyr)       # filter
@@ -480,7 +480,7 @@ legend("topright",
        lwd = 2)
 
 
-######################## Ecriture de la soumission #############################
+########################### Writing the submission ############################
 ################################################################################
 
 dir.create("output", showWarnings = FALSE)
@@ -488,8 +488,8 @@ dir.create("output", showWarnings = FALSE)
 submission <- data.frame(Id = Data1$Id, Net_demand = as.numeric(pred_Data1))
 write.csv(submission, "output/submission_final.csv", row.names = FALSE, quote = FALSE)
 
-cat("Soumission ecrite dans output/submission_final.csv (",
-    nrow(submission), "lignes )\n")
+cat("Submission written to output/submission_final.csv (",
+    nrow(submission), "rows )\n")
 
 
 
